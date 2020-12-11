@@ -1,4 +1,2 @@
-# JS: Архитектура фронтенда
-
-## Источник: [hexlet](https://ru.hexlet.io/courses/js-frontend-architecture)
+# JS: Архитектура фронтенда [[hexlet](https://ru.hexlet.io/courses/js-frontend-architecture)]
 
