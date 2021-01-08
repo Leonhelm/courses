@@ -33,6 +33,9 @@ two
 * Интерполяция (добавление в строку значение переменной):
   * `String text = 'Hello, $name';`
   * `String text = 'Hello, ${name.toUpperCase()}';`
+  
+  
+## Коллекции
 * List - упорядоченный набор объектов
   * Фиксированный (с жёстко определённым размером)
   * Нефиксированный (может меняться в размерах)
@@ -62,6 +65,17 @@ var set3 = Set();
 * Map - неупорядоченный набор пары ключ-значение
   * Каждый ключ должен быть уникальным
   * Значения могут повторяться
+```
+var map1 = {"key1": "value1", "key2": "value2"};
+Map<int, String> map2 = {1: "value1", 2: "value2"};
+var map3 = Map();
+map3.containsKey('key'); // true - если содержит ключ 'key'
+map3.update('key', (valueCurrent) => 'valueNew'); // меняем по ключу 'key' значение на 'valueNew'
+map3.remove('key'); // удаляем по ключу
+map3.isEmpty; // как у List
+map3.length; // как у List
+map3.clear(); // как у List
+```
 * 
 * 
 *
