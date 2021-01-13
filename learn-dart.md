@@ -159,12 +159,100 @@ class Car {
   Car(this.weels); // или c помощью параметров конструктора
 }
 ```
-*
-*
-*
-*
-*
-*
+* Наследование
+```
+class Vehicle {
+  Vehicle.fromColor() {
+  }
+}
+
+class Car extends Vehicle {
+  Car(): super.fromColor() { // единственное возможное место вызова конструктора родительского класса (до инициализации класса)
+  }
+}
+```
+* Переопределение наследуемых методов и свойств
+```
+class Vehicle {
+  void start() {
+  }
+}
+
+class Car extends Vehicle {
+  @override // благодаря этой аннотации можно переопределить методы и свойства родительского класса
+  void start() {
+    super.start(); // вызов метода родительского класса
+  }
+}
+
+```
+* Интерфейсы
+```
+class Car {
+  String name;
+}
+
+class Train {
+  void move() {
+  }
+}
+
+// класс Vehicle реализует интерфейсы Car и Train
+// необходимо реализовать все свойства и методы имплементированных интерфейсов
+class Vehicle implements Car, Train {
+}
+```
+* Миксины
+```
+class Car {
+  String name;
+}
+
+mixin Train {
+  void move() {
+  }
+}
+
+// класс Vehicle реализует миксины Car и Train
+// классы миксины и миксины не могут содержать конструкторы
+class Vehicle with Car, Train {
+}
+```
+* Абстрактные классы
+```
+abstract class Vehicle {
+  String speed;
+  void move();
+}
+
+// необходимо реализовать все свойства и методы родительского класса
+class Car extends Vehicle {
+}
+```
+* Обобщения (Generics)
+```
+void main() {
+  Car car = Car("2", "BMW");
+  print(car.id.runtimeType);
+  car.speed("100");
+
+  Car car1 = Car(1, "Ford");
+  print(car1.id.runtimeType);
+  car1.speed(100);
+}
+
+class Car<T> {
+  T id;
+  String carName;
+
+  Car(this.id, this.carName);
+
+  void speed<T>(T value) {
+    print("The $carName. Speed: $value");
+  }
+}
+```
+## Асинхронное программирование
 *
 *
 *
