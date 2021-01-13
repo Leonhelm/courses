@@ -229,53 +229,7 @@ abstract class Vehicle {
 class Car extends Vehicle {
 }
 ```
-* Обобщения (Generics)
-```
-void main() {
-  Car car = Car("2", "BMW");
-  print(car.id.runtimeType);
-  car.speed("100");
-
-  Car car1 = Car(1, "Ford");
-  print(car1.id.runtimeType);
-  car1.speed(100);
-}
-
-class Car<T> {
-  T id;
-  String carName;
-
-  Car(this.id, this.carName);
-
-  void speed<T>(T value) {
-    print("The $carName. Speed: $value");
-  }
-}
-```
+* [Обобщения (Generics)](https://github.com/Virer2013/Dart-2.5/blob/master/%5B8%5D%20%D0%9E%D0%9E%D0%9F.%20%D0%A3%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C%202/%D0%9E%D0%B1%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F%20(Generics)/main.dart)
 ## Асинхронное программирование
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
+* [Future](https://github.com/Virer2013/Dart-2.5/blob/master/%5B9%5D%20%D0%90%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/Future%20API/main.dart)
+* [async/await](https://github.com/Virer2013/Dart-2.5/blob/master/%5B9%5D%20%D0%90%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/%20async_await/main.dart)
