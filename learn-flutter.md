@@ -43,6 +43,7 @@
 * Виджет `Positioned` - позволяет абсолютно позиционировать виджет относительно родителя `Stack`
 * Виджет `Divider` - линия разделитель
 * Виджет `Chip` - прямоугольник со скруглёнными краями
+* Виджет `SizedBox` - бокс заданного размера
 * Практика: [реализация шаблона приложения по погоде](https://github.com/Virer2013/Learn_Flutter/blob/master/layout_interface/lib/main.dart)
 * Виджет `ListView` - позволяет создавать [статические](https://github.com/Virer2013/Learn_Flutter/blob/master/static_listview/lib/main.dart) или [динамические](https://github.com/Virer2013/Learn_Flutter/blob/master/dynamic_listview/lib/main.dart) ([динамический с заголовком](https://github.com/Virer2013/Learn_Flutter/blob/master/dynamic_listview_heading/lib/main.dart)) списки (с прокруткой)
 * `ListView.builder` - лениво создаёт элементы списка, рендерятся только те, которые есть на экране
@@ -63,8 +64,16 @@
 
 
 ## Взаимодействие с пользователем
-* 
-* 
+* Виджет `Form` - контейнер для полей формы, предоставляет расширенные возможности по сохранению, сбросу, валидации
+  * [Пример использования](https://github.com/Virer2013/Learn_Flutter/tree/master/form_example/lib)
+  * Для считывания данных формы необходимо реализовать класс `TextEditingController` и присвоить полученый объект аргументу `controller` у поля
+    * Не забыть очистить `.dispose()` объекты от класса `TextEditingController` при `dispose` родительского виджета
+  * Для валидации всей формы необходимо реализовать аргумент `key` у формы `GlobalKey<FormState>()`
+* Виджет `TextField` - поле ввода
+  * `TextFormField` - это `TextField` обёрнутый инструментами интегрированными с формой (например валидация)
+  * `keyboardType` - аргумент для задания типа клавиатуры (полная, телефон, почтовый адрес)
+  * `inputFormatters` - аргумент для форматирования вводимых данных
+  * `maxLines` - аргумент для создания textarea
 * 
 * 
 * 
