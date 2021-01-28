@@ -50,6 +50,8 @@
 * Виджет `Card` - карточка
 * Виджет `ListTile` - карточка в списке
 * `List.generate` - создание виджетов требуемого количества
+* Виджет `FeatureBuilder` - декларативное ожидание завершение фьючерса с подменой виджета при ожидании [пример](https://github.com/Virer2013/Learn_Flutter/blob/master/manual_serialization/lib/main.dart#L39)
+* Виджет `CircularProgressIndicator` - спиннер
 
 
 ## Навигация и передача данных
@@ -86,11 +88,12 @@
 * [pub.dev](https://pub.dev/) - пакетный менеджер для языка `dart`
 * Добавляем зависимости в `pubspec.yaml` в раздел `dependecies`, затем скачиваем командой `flutter pub get`
 * Также можно подтянуть зависимость с гита или локального файла
+* Для работы не напрямую, а через объект можно юзать `as`. Пример: `import 'package:http/http.dart' as http;`
 
 
 ## Работа с сетью
-* 
-* 
+* Для работы с сетью нужно подключить пакет [http](https://pub.dev/packages/http)
+* [Ручная сериализация](https://github.com/Virer2013/Learn_Flutter/tree/master/manual_serialization/lib) `JSON` с помощью методов `json.encode()` и `json.decode()` из пакета `dart.convert`
 * 
 * 
 * 
