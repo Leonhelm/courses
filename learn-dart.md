@@ -126,6 +126,7 @@ class Car {
   Car(this.car, this.color) // сразу присваиваем параметры конструктора свойствам объекта
 }
 ```
+* Фабричный конструктор ([примеры создания и использования](https://github.com/Virer2013/Learn_Flutter/blob/master/manual_serialization/lib/model/offices.dart#L28))
 * Инициализатор
 ```
 class Car {
