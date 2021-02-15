@@ -107,7 +107,6 @@
   * [Provider](https://github.com/Virer2013/Learn_Flutter/blob/master/provider_example/lib/main.dart) ([пакет provider](https://pub.dev/packages/provider))
   * Redux
   * MobX
-  * 
 * 
 * 
 * 
