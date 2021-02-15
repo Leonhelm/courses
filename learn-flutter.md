@@ -93,7 +93,7 @@
 ## Работа с сетью
 * Для работы с сетью нужно подключить пакет [http](https://pub.dev/packages/http)
 * [Ручная сериализация](https://github.com/Virer2013/Learn_Flutter/tree/master/manual_serialization/lib) `JSON` с помощью методов `json.encode()` и `json.decode()` из пакета `dart.convert`
-* [Автоматическая сериализация](https://github.com/Virer2013/Learn_Flutter/tree/master/autogen_serialization/lib) - с помощью пакетов (json_serializable)[https://pub.dev/packages/json_serializable] и (build_runner)[https://pub.dev/packages/build_runner]
+* [Автоматическая сериализация](https://github.com/Virer2013/Learn_Flutter/tree/master/autogen_serialization/lib) - с помощью пакетов [json_serializable](https://pub.dev/packages/json_serializable) и [build_runner](https://pub.dev/packages/build_runner)
   * Сервис по генерации моделей на основе json - [json to dart](https://javiercbk.github.io/json_to_dart/)
 
 
