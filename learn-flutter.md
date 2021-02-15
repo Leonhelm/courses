@@ -3,7 +3,6 @@
 
 
 ## Основы
-* Суть виджетов: **UI = f(State)**
 * Виджет `MaterialApp`
   * `import 'package:flutter/material.dart'`
   * Корневой виджет для использования темы материала
@@ -96,6 +95,26 @@
 * [Ручная сериализация](https://github.com/Virer2013/Learn_Flutter/tree/master/manual_serialization/lib) `JSON` с помощью методов `json.encode()` и `json.decode()` из пакета `dart.convert`
 * [Автоматическая сериализация](https://github.com/Virer2013/Learn_Flutter/tree/master/autogen_serialization/lib) - с помощью пакетов (json_serializable)[https://pub.dev/packages/json_serializable] и (build_runner)[https://pub.dev/packages/build_runner]
   * Сервис по генерации моделей на основе json - [json to dart](https://javiercbk.github.io/json_to_dart/)
+
+
+## [Управление состоянием](https://flutter.dev/docs/development/data-and-backend/state-mgmt/intro)
+* **UI = f(State)**
+* Empheral state (локальное состояние)
+  * [Stateful Widget](https://github.com/Virer2013/Learn_Flutter/blob/master/vanilla_example/lib/main.dart) `setState() (Vanilla)`
+* Application State
+  * [Inherited Widget](https://github.com/Virer2013/Learn_Flutter/blob/master/inherited_widget_example/lib/main.dart) [Как правильно использовать унаследованный виджет](https://fooobar.com/questions/15394788/flutter-how-to-correctly-use-an-inherited-widget)
+  * [Scoped Model](https://github.com/Virer2013/Learn_Flutter/blob/master/scoped_model_example/lib/main.dart)
+  * [Provider](https://github.com/Virer2013/Learn_Flutter/blob/master/provider_example/lib/main.dart) ([пакет provider](https://pub.dev/packages/provider))
+  * Redux
+  * MobX
+  * 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
 * 
 * 
 * 
