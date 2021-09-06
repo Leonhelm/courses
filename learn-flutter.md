@@ -107,9 +107,12 @@
   * [Provider](https://github.com/Virer2013/Learn_Flutter/blob/master/provider_example/lib/main.dart) ([пакет provider](https://pub.dev/packages/provider))
   * Redux
   * MobX
-* 
-* 
-* 
+
+
+## Хранение данных на устройстве
+* [https://pub.dev/packages/path_provider](path_provider) - независимый от платформы способ доступа к часто используемым расположениям в файловой системе устройства
+* [https://api.dart.dev/stable/2.13.4/dart-io/dart-io-library.html](dart-io) - Поддержка файлов, сокетов, HTTP и других операций ввода-вывода для не веб-приложений
+* [https://pub.dev/packages/shared_preferences](shared_preferences) - для хранения постоянных небольших данных на диске устройства пользователя (типа localeStorage из js)
 * 
 * 
 * 
