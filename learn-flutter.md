@@ -120,15 +120,28 @@
 * [Официальна документация](https://bloclibrary.dev/#/ru/gettingstarted)
 * Базовая схема:
 ```
-------  <- states  --------  async request ->   --------
+|----|  <- states  |------|  async request ->   |------|
 | UI |             | BLoC |                     | Data |
-------  events ->  --------  <- async responce  --------
+|----|  events ->  |------|  <- async responce  |------|
 ```
 UI - слой представления (Presentation)
 
 BLoC - слой bloc (Business logic)
 
-Data - слой данных
+Data - слой данных (Data layer)
+
+* Устройство BLoC:
+```
+                                      BLoC
+                   |------------------------------------------------|
+Stream<Events> -> sink -> Business logic -> StreamController -> stream -> Stream<States>          
+                   |------------------------------------------------|
+```
+StreamController - стандартный класс dart, обёртка над объектом Stream, позволяет организовывать потоки данных
+
+sink - Входящий поток данных, куда пользователь добавляет события
+
+stream - Выходной поток данных, который слушают один или несколько объектов, и реагирует на изменения
 
 * 
 * 
