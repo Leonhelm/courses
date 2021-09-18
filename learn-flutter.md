@@ -113,7 +113,7 @@
 * [https://pub.dev/packages/path_provider](path_provider) - независимый от платформы способ доступа к часто используемым расположениям в файловой системе устройства
 * [https://api.dart.dev/stable/2.13.4/dart-io/dart-io-library.html](dart-io) - Поддержка файлов, сокетов, HTTP и других операций ввода-вывода для не веб-приложений
 * [https://pub.dev/packages/shared_preferences](shared_preferences) - для хранения постоянных небольших данных на диске устройства пользователя (типа localeStorage из js)
-* 
+* [https://pub.dev/packages/sqflite](sqflite) - для работы с локальной бд SQLite. Особенность: получает и принимает данный исключительно в типе Map
 * 
 * 
 * 
