@@ -145,7 +145,14 @@ stream - Выходной поток данных, который слушают
 
 * Выше описано поведение поведение блок в чистом виде (без сторонних пакетов). Чаще всего подход блок используют при помощи библиотеки [flutter_bloc](https://pub.dev/packages/flutter_bloc).
 * [Хороший пример приложения](https://github.com/Virer2013/Learn_Flutter/tree/master/bloc_network_example) с использованием подхода блок (flutter_bloc) для реализации запросов к апи.
-* 
+* Кубиты - возможность 6+ версии [flutter_bloc](https://pub.dev/packages/flutter_bloc). Представляют собой блок с меньшим количеством бойлерплейта. Основное отличие в схеме ниже:
+```
+|----|  <- states     |-------|  async request ->   |------|
+| UI |                | Cubit |                     | Data |
+|----|  functions ->  |-------|  <- async responce  |------|
+```
+От `UI` к `Cubit` вместо `events` используются `functions`. [Пример реализации тут](https://github.com/Virer2013/Learn_Flutter/tree/master/cubit_network_example_null_safety/lib/cubit).
+
 * 
 * 
 * 
