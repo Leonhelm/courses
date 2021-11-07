@@ -169,6 +169,9 @@ stream - Выходной поток данных, который слушают
 Развёрнутая схема:
 ![image](https://user-images.githubusercontent.com/20487810/140644467-a983e557-4e2e-45cd-8a79-5cc9f98acf21.png)
 
+Схема под флаттер:
+![image](https://user-images.githubusercontent.com/20487810/140644765-adca6159-5811-4a32-937a-769a3ca646ec.png)
+
 
 * 
 * 
