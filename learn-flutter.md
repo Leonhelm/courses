@@ -181,30 +181,13 @@ stream - Выходной поток данных, который слушают
 Работа с Service Locator на 2 этапа:
 
 * Регистрация объектов:
- * registerFactoryParam<T, P1,P2>
- * registerFactoryParamAsync<T, P1,P2>
- * registerSingleton<T >
- * registerSingletonAsync<T >
- * registerLazySingleton<T >
- * registerLazySingletonAsync<T >
- * registerSingletonWithDependencies
+  * registerFactoryParam<T, P1,P2>
+  * registerFactoryParamAsync<T, P1,P2>
+  * registerSingleton<T >
+  * registerSingletonAsync<T >
+  * registerLazySingleton<T >
+  * registerLazySingletonAsync<T >
+  * registerSingletonWithDependencies
 * Получение объектов:
- * registerFactory<T > get<T>(name, param1, param2)
- * registerFactoryAsync<T > getAsync<T>(name, param1, param2)
-
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+  * registerFactory<T > get<T>(name, param1, param2)
+  * registerFactoryAsync<T > getAsync<T>(name, param1, param2)
