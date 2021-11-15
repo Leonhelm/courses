@@ -172,9 +172,26 @@ stream - Выходной поток данных, который слушают
 Схема под флаттер:
 ![image](https://user-images.githubusercontent.com/20487810/140644765-adca6159-5811-4a32-937a-769a3ca646ec.png)
 
+### Dependency Injection
 
-* 
-* 
+Процесс предоставления внешней зависимости программному компоненту. В полном соответствии с принципом единственной ответственности объект отдаёт заботу о построении требуемых ему зависимостей внешнему, специально предназначенному для этого общему механизму.
+
+Реализуется с помощью инструмента [get_it](https://pub.dev/packages/get_it). Пример [locator_service](https://github.com/Virer2013/Learn_Flutter/blob/master/rick_and_morty/lib/locator_service.dart).
+
+Работа с Service Locator на 2 этапа:
+
+* Регистрация объектов:
+ * registerFactoryParam<T, P1,P2>
+ * registerFactoryParamAsync<T, P1,P2>
+ * registerSingleton<T >
+ * registerSingletonAsync<T >
+ * registerLazySingleton<T >
+ * registerLazySingletonAsync<T >
+ * registerSingletonWithDependencies
+* Получение объектов:
+ * registerFactory<T > get<T>(name, param1, param2)
+ * registerFactoryAsync<T > getAsync<T>(name, param1, param2)
+
 * 
 * 
 * 
