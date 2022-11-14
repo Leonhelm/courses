@@ -110,6 +110,7 @@ Independet Security Researcher| HackerU | Kaspersky Lab
 - [Microsoft SDL](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/cc307891(v=msdn.10))
 - [BSIMM — Building Security In Maturity Model](https://www.bsimm.com/)
 - [Эксплуатации уязвимостей](https://github.com/swisskyrepo/PayloadsAllTheThings)
+- [Мониторинг актуальных уязвимостей](https://cvetrends.com/)
 
 ## Безопасная разработка
 
