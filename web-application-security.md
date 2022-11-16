@@ -310,6 +310,229 @@ User.order("#{params[:sortby]} ASC")
 
 UNION-based атака SQL инъекции, на извлечение данных из других таблиц - https://portswigger.net/web-security/sql-injection/union-attacks/lab-retrieve-data-from-other-tables (Сложность: Низкая)
 
+## Что такое внедрение шаблона на стороне сервера?
+
+Инъекция шаблонов на стороне сервера - это атака, при которой злоумышленник может использовать собственный синтаксис шаблона для введения вредоносной полезной нагрузки в шаблон, который затем выполняется на стороне сервера.
+
+Движки шаблонов предназначены для генерации веб-страниц путем объединения фиксированных шаблонов с изменчивыми данными. Атаки с инъекцией шаблонов на стороне сервера могут происходить, когда вводимые пользователем данные не передаются в виде данных, а непосредственно вставляются в шаблон. Это позволяет злоумышленникам вводить произвольные директивы шаблонов для манипулирования движком шаблонов, часто позволяя им получить полный контроль над сервером.
+
+## Какой ущерб несут уязвимости к инъекции шаблонов?
+
+Уязвимости инъекции шаблонов на стороне сервера могут подвергать веб-сайты различным атакам в зависимости от движка шаблонов и того, как именно приложение его использует. В некоторых редких случаях эти уязвимости не представляют реального риска для безопасности. Однако, в большинстве случаев, воздействие инъекции шаблона на стороне сервера может быть катастрофическим.
+
+В самом крайнем случае злоумышленник потенциально может добиться удаленного выполнения кода, получив полный контроль над внутренним сервером и используя его для других атак на внутреннюю инфраструктуру.
+
+Даже в тех случаях, когда полное удаленное выполнение кода невозможно, злоумышленник часто все равно может использовать внедрение шаблонов на стороне сервера в качестве основы для множества других атак, потенциально получая доступ на чтение к конфиденциальным данным и произвольным файлам на сервере.
+
+## Как появляются уязвимости инъекции шаблонов?
+
+Рассмотрим несколько примеров кода:
+
+Пример НЕ уязвимый к SSTI:
+
+```php=
+<?php
+
+require_once('lib/Twig/Autoloader.php');
+Twig_Autoloader::register();
+
+$loader = new Twig_Loader_Filesystem('views');
+
+$twig = new Twig_Environment($loader, array(
+  'cache' => 'cache',
+));
+
+echo $twig->render('index.html', array('name' => '', 'title' => 'Startpage'));
+
+?>
+```
+
+Пример уязвимый к SSTI:
+
+```php=
+<?php
+
+require_once('lib/Twig/Autoloader.php');
+Twig_Autoloader::register();
+
+$twig = new \Twig_Environment(new \Twig_Loader_String());
+
+echo $twig->render("Error message: ".$_GET['error']);
+
+?>
+```
+
+## Проведение атаки инъекции шаблонов
+
+### Сценарий №1 Пример для кода шаблонизатора PHP Twig
+
+Код: 
+```php=
+echo $twig->render("Error message: ".$_GET['error']);
+```
+
+Эксплоит:
+
+```php=
+{{['cat\x20/etc/passwd']|filter('system')}}
+```
+
+### Сценарий №2 Пример для кода шаблонизатора ASP.NET Razor
+
+Код:
+```c#=
+[HttpPost]
+[ValidateInput(false)]
+public ActionResult Index(string razorTpl)
+{
+	ViewBag.RenderedTemplate = Razor.Parse(razorTpl);
+	ViewBag.Template = razorTpl;
+	return View();
+}
+```
+
+Эксплоит:
+```=
+@{
+  // C# code
+}
+```
+
+### Сценарий №3 Пример для кода шаблонизатора Java Velocity
+
+Код:
+```java=
+// Set up the context data
+VelocityContext context = new VelocityContext();
+context.put( "name", user.name );
+
+// Load the template
+String template = getUserTemplateFromRequestBody(request);
+RuntimeServices runtimeServices = RuntimeSingleton.getRuntimeServices();
+StringReader reader = new StringReader(template);
+SimpleNode node = runtimeServices.parse(reader, "myTemplate");
+template = new Template();
+template.setRuntimeServices(runtimeServices);
+template.setData(node);
+template.initDocument();
+
+// Render the template with the context data
+StringWriter sw = new StringWriter();
+template.merge( context, sw );
+```
+
+Эксплоит:
+```=
+$name.getClass().forName("java.lang.Runtime").getRuntime().exec(<COMMAND>)
+```
+
+## Как защищаться от инъекции шаблонов?
+
+Лучший способ предотвратить инъекцию шаблонов на стороне сервера - **не позволять никаким пользователям изменять или отправлять новые шаблоны**. Однако иногда это неизбежно из-за требований бизнеса.
+
+Один из простейших способов избежать внедрения уязвимостей инъектирования шаблонов на стороне сервера - **всегда использовать "logic-less" шаблонный движок**, такой как Mustache, если в этом нет абсолютной необходимости. Максимально возможное отделение логики от представления может значительно уменьшить вашу подверженность наиболее опасным атакам на основе шаблонов.
+
+Другой мерой является **выполнение пользовательских шаблонов только в песочнице**, где потенциально опасные модули и функции были полностью удалены. К сожалению, недоверенный код в песочнице по своей природе сложен и склонен к обходу.
+
+Наконец, еще одним дополнительным подходом является признание того, что произвольное выполнение кода практически неизбежно, и **применение собственной "песочницы" путем развертывания среды шаблонов**, например, в изолированном контейнере Docker.
+
+## Дополнительные материалы
+:::success
+- [PayloadsAllTheThings - Templates Injections](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection)
+- [TPLMap: инструмент автоматизации](https://github.com/epinna/tplmap)
+:::
+
+## Упражнения
+
+### Упражнение 1
+
+Основы инъеции шаблонов на стороне сервера - https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-basic (Сложность: низкая)
+
+### Упражнение 2
+
+Основы инъекции шаблонов на стороне сервера (контекст кода) - https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-basic-code-context (Сложность: низкая)
+
+GraphQL инъекции
+
+Содержание:
+
+- Что такое GraphQL
+- Какие могут быть проблемы?
+- Известные отчеты
+- Упражнение
+
+
+## Что такое GraphQL
+
+GraphQL это язык запросов, который позволяет описать типы данных и дать возможность их собирать с помощью описанного синтаксиса.
+
+С помощью GraphQL можно объединить разнотипные источники данных. Чаще всего используется этот язык для того чтобы получать данные от сервера.
+
+Обычно GraphQL API состоит из:
+
+1.  schema - описание данных
+2.  queries - запрос данных
+3.  resolvers - кусок кода, который описывает алгоритм преобразования данных
+
+Проще всего рассматривать через официальный [курс](https://graphql.org/learn/).
+
+## Какие могут быть проблемы?
+
+- может быть реализован SSRF, если не проверяются параметры резолверов
+- нарушение разграничения доступа - по-умолчанию его нет и разработчики должны самостоятельно его имплементировать
+- DDOS - GraphQL не ограничивает количество вложенных элементов в запросе
+- может быть использован для атак на обслуживаемые ресурсы: sql injection, Nosql injectio, Os Command Injection и т.д.
+- доступных механизм интроспекции, позволяет получить данные о структуре хранилищ.
+
+Пример запроса интроспекции:
+
+```
+{ 
+ __schema { 
+  types { 
+   name 
+   } 
+  } 
+}
+```
+
+Пример атак sql и nosql:
+
+```
+mutation { 
+    login(input: {
+        user: "admin", 
+        password: "password' or 1=1 -- -"
+    }) { 
+        success
+    } 
+}
+
+mutation {
+    users(search: "{password: { $regex: \".*\"}, name:Admin }") {
+        id
+        name
+        password
+    }
+}
+```
+
+
+## Известные отчеты
+
+- https://gitlab.com/gitlab-org/gitlab/-/issues/215703
+- https://hackerone.com/reports/1122408
+- https://hackerone.com/reports/342978
+- https://hackerone.com/reports/380317
+
+## Упражнение
+
+https://www.root-me.org/en/Challenges/Web-Server/GraphQL
+
+Полезный ресурс для работы с GraphQL - https://apis.guru/graphql-voyager/
+
+
+
 
 
 
