@@ -155,7 +155,7 @@ Dependency Inversion Principle – код, который имплементир
 * Stable Dependencies Principle – зависимости должны быть направлены в сторону устойчивости;
 * Stable Abstractions Principle – компонент должен быть настолько же абстрактным, насколько он стабильным.
 
-<img width="692" alt="изображение" src="https://github.com/Leonhelm/courses/assets/20487810/86380cbc-1957-4e43-bedb-0492523fbfdf">
+<img width="692" alt="изображение" src="https://github.com/Leonhelm/courses/assets/20487810/86380cbc-1957-4e43-bedb-0492523fbfdf"><br />
 
 Компонент в идеале должен быть в зоне Main Sequence.
 
