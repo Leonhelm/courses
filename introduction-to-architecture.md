@@ -169,7 +169,31 @@ Dependency Inversion Principle – код, который имплементир
 
 ### 2.4 12-факторное приложение
 
+1. Кодовая база. Одна кодовая база, отслеживаемая в системе контроля версий, – множество развёртываний;
+2. Зависимости. Явно объявляйте и изолируйте зависимости;
+3. Конфигурация. Сохраняйте конфигурацию в среде выполнения;
+4. Сторонние службы (Backing Services). Считайте сторонние службы (backing services) подключаемыми ресурсами;
+5. Сборка, релиз, выполнение. Строго разделяйте стадии сборки и выполнения;
+6. Процессы. Запускайте приложение как один или несколько процессов не сохраняющих внутреннее состояние (stateless);
+7. Привязка портов (Port binding). Экспортируйте сервисы через привязку портов;
+8. Параллелизм. Масштабируйте приложение с помощью процессов;
+9. Утилизируемость (Disposability). Максимизируйте надёжность с помощью быстрого запуска и корректного завершения работы;
+10. Паритет разработки/работы приложения. Держите окружения разработки, промежуточного развёртывания (staging) и рабочего развёртывания (production) максимально похожими;
+11. Журналирование (Logs). Рассматривайте журнал как поток событий;
+12. Задачи администрирования. Выполняйте задачи администрирования/управления с помощью разовых процессов.
+
 ### 2.5 Статья Александра Поломодова про подходы к организации кода 
+
+https://tellmeabout.tech/essential-arch-course-code-477b92fb6ba7
+
+* Книга "Software Architecture: The Hard Parts" и <a href="https://tellmeabout.tech/code-of-architecture-recap-of-software-architecture-the-hard-parts-a2d31be999f3" rel="noopener noreferrer" target="_blank">краткий обзор</a>;
+* Книга “Fundamentals of Software Architecture” и <a href="https://tellmeabout.tech/%D0%BE%D0%B1%D0%B7%D0%BE%D1%80-fundamentals-of-software-architecture-1754c0e78d48" rel="noopener noreferrer" target="_blank">краткий обзор</a>;
+* Книга “Clean Architecture” и обзоры <a href="https://tellmeabout.tech/clean-architecture-review-part-1-f4784cd43e29" rel="noopener noreferrer" target="_blank">1</a>, <a href="https://tellmeabout.tech/clean-architecture-review-part-2-dd1fe295b523" rel="noopener noreferrer" target="_blank">2</a>;
+* Книга “Design Patterns” и <a href="https://t.me/book_cube/1367" rel="noopener noreferrer" target="_blank">краткий обзор</a>;
+* Книга “Evolutionary Architecture” и <a href="https://tellmeabout.tech/coa-recap-of-building-evolutionary-architecture-cb2fa6705d5e" rel="noopener noreferrer" target="_blank">краткий обзор</a>;
+* Книга "Distributed Systems, 4th Edition" и <a href="https://tellmeabout.tech/code-of-architecture-recap-of-distributed-systems-4th-edition-89cc10b282c" rel="noopener noreferrer" target="_blank">краткий обзор</a>;
+* Книга "A Philosophy of Software Design" и <a href="https://tellmeabout.tech/coa-a-philosophy-of-software-design-3a7cdc30e0dc" rel="noopener noreferrer" target="_blank">краткий обзор</a>;
+* Манифест <a href="https://12factor.net/" rel="noopener noreferrer" target="_blank">12 factor app</a>.
 
 
 
