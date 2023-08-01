@@ -195,7 +195,15 @@ https://tellmeabout.tech/essential-arch-course-code-477b92fb6ba7
 * Книга "A Philosophy of Software Design" и <a href="https://tellmeabout.tech/coa-a-philosophy-of-software-design-3a7cdc30e0dc" rel="noopener noreferrer" target="_blank">краткий обзор</a>;
 * Манифест <a href="https://12factor.net/" rel="noopener noreferrer" target="_blank">12 factor app</a>.
 
+## 3 Подходы к работе с данными
 
+### 3.1 Реляционные базы данных
+
+### 3.2 Подходы к хранению данных
+
+### 3.3 Отчетность и аналитика
+
+### 3.4 Статья Александра Поломодова про подходы к работе с данными
 
 
 
